@@ -337,17 +337,91 @@ select:focus {
 
 .report-preview {
   background-color: white;
-  color: black;
-  padding: 2rem;
+  color: #333;
+  padding: 2.5rem;
   border-radius: var(--radius-md);
   flex: 1;
   overflow-y: auto;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+  font-family: 'Times New Roman', Times, serif;
+  border: 1px solid #e5e7eb;
 }
 
 .report-preview h4 {
   margin-bottom: 1rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid #2563eb;
   padding-bottom: 0.5rem;
+  color: #1e3a8a;
+  font-family: var(--font-main);
+}
+
+.report-preview .report-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Tabs */
+.library-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+.tab-btn.active {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+/* PDF Snippet */
+.pdf-snippet {
+  background-color: #f8fafc;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: 0.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  overflow-x: auto;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.pdf-snippet::before {
+  content: 'PDF Extract';
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #e2e8f0;
+  color: #64748b;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border-bottom-left-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-weight: bold;
 }
 
 /* Animations */
