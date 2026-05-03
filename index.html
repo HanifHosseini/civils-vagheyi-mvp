@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conforma - Civils Vagheyi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <h1>Conforma</h1>
+      <div class="controls">
+        <select id="jurisdiction-select" aria-label="Select Jurisdiction">
+          <!-- Populated by JS -->
+        </select>
+        <select id="task-select" aria-label="Select Task">
+          <!-- Populated by JS -->
+        </select>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+      
+      <!-- AI Copilot Sidebar -->
+      <aside class="sidebar">
+        <div class="chat-history" id="chat-history">
+          <div class="chat-bubble ai">
+            Hello! I am Conforma, your civil engineering co-pilot. Please select a jurisdiction and task above to get started.
+          </div>
+        </div>
+        <div class="chat-input-container">
+          <textarea class="chat-input" id="chat-input" rows="2" placeholder="Ask about regulations, or paste a value..."></textarea>
+        </div>
+      </aside>
+
+      <!-- Center Workspace Area -->
+      <section class="workspace">
+        
+        <!-- View 1: Library View -->
+        <div id="library-view">
+          <div class="workspace-header">
+            <h2>Reference Library</h2>
+            <p id="library-subtitle">Showing documents for All Jurisdictions</p>
+          </div>
+          <div class="document-grid" id="document-grid">
+            <!-- Cards populated by JS -->
+          </div>
+        </div>
+
+        <!-- View 2: Calculation / Task View -->
+        <div id="calc-view" class="calc-view">
+          <div class="workspace-header">
+            <h2 id="calc-title">Task Computation</h2>
+            <p>Review the exact clause and input parameters.</p>
+          </div>
+          
+          <div class="calc-split">
+            <!-- Left Panel: Source -->
+            <div class="calc-panel">
+              <h3>Authoritative Source</h3>
+              <div class="source-citation" id="source-citation">
+                <p><strong>Standard:</strong> <span id="source-title">Select a task first...</span></p>
+                <p><strong>Clause:</strong> <span id="source-clause">--</span></p>
+                <p class="cite-ref">URL: <span id="source-url">--</span></p>
+              </div>
+              <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                Preview of the PDF will appear here. The specific tables or IDF curves relevant to the task have been extracted to standard formats.
+              </p>
+            </div>
+
+            <!-- Right Panel: Compute and Report -->
+            <div class="calc-panel">
+              <h3>Computation</h3>
+              <div class="form-group">
+                <label for="param-1">Drainage Area (ha)</label>
+                <input type="number" id="param-1" placeholder="e.g. 5.2" />
+              </div>
+              <div class="form-group">
+                <label for="param-2">Runoff Coefficient (C)</label>
+                <input type="number" id="param-2" step="0.01" placeholder="e.g. 0.65" />
+              </div>
+              <button class="btn" id="btn-compute">Compute & Generate Report</button>
+
+              <div id="report-container" class="hidden" style="margin-top: 1.5rem;">
+                <h3>Generated Report Preview</h3>
+                <div class="report-preview" id="report-preview">
+                  <!-- Report content -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
